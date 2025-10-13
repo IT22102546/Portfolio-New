@@ -34,9 +34,9 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <div className="flex gap-4">
               {[
-                { icon: Github, href: 'https://github.com', label: 'GitHub' },
-                { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' }
+                { icon: Github, href: 'https://github.com/IT22102546', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/sanjana-nimesh-a4b5a8252/', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:sanjana.nim2001@gmail.com', label: 'Email' }
               ].map((social) => (
                 <a
                   key={social.label}
@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-blue-500/20 text-center">
           <p className="text-gray-400 flex items-center justify-center gap-2 flex-wrap">
-            <span>© {currentYear} Your Name. Made with</span>
+            <span>© {currentYear} Sanjana Nimesh. Made with</span>
             <Heart className="w-4 h-4 text-red-500 animate-pulse" />
             <span>and React</span>
           </p>
