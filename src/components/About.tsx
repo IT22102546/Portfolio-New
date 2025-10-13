@@ -252,8 +252,8 @@ export default function About() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { name: 'Frontend', level: 90, color: 'from-blue-500 to-cyan-500' },
+                  { name: 'Backend', level: 90, color: 'from-green-500 to-emerald-500' },
                   { name: 'Mobile', level: 85, color: 'from-purple-500 to-pink-500' },
-                  { name: 'Backend', level: 85, color: 'from-green-500 to-emerald-500' },
                   { name: 'ML/AI', level: 80, color: 'from-orange-500 to-red-500' }
                 ].map((skill, index) => (
                   <div key={skill.name} className="text-center group">
