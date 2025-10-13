@@ -140,8 +140,8 @@ export default function Hero() {
             {/* Social Links */}
             <div className="flex gap-6 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: '800ms' }}>
               {[
-                { icon: Github, href: 'https://github.com', label: 'GitHub' },
-                { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+                { icon: Github, href: 'https://github.com/IT22102546', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/sanjana-nimesh-a4b5a8252/', label: 'LinkedIn' },
                 { icon: Mail, href: 'mailto:sanjana.nim2001@gmail.com', label: 'Email' }
               ].map((social, index) => (
                 <a
