@@ -1318,3 +1318,20 @@
     transition: none !important;
   }
 }
+
+/* Force mobile visibility */
+@media (max-width: 768px) {
+  #experience * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* Ensure all content is above background */
+  #experience .relative.z-10,
+  #experience .advanced-experience-card,
+  #experience .experience-timeline-card {
+    position: relative;
+    z-index: 20;
+  }
+}
