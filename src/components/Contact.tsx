@@ -1,5 +1,9 @@
 import { Mail, Phone, MapPin, Send, Clock, Zap, Sparkles } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import emailjs from 'emailjs-com';
+
+// Initialize EmailJS (add this at the top)
+emailjs.init("0dC8U10tkq7mtNRcK"); // Your public key
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,7 +15,8 @@ export default function Contact() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,20 +38,56 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    setIsSubmitting(false);
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration - updated template params
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        reply_to: formData.email, // Important for reply functionality
+        to_email: 'sanjana.nim2001@gmail.com'
+      };
+
+      console.log('Sending email with params:', templateParams);
+
+      // Send email using EmailJS with updated parameters
+      const result = await emailjs.send(
+        'service_x71pvhm', // Your EmailJS service ID
+        'template_l9mjm0h', // Your EmailJS template ID
+        templateParams,
+        '0dC8U10tkq7mtNRcK' // Your EmailJS public key
+      );
+
+      console.log('Email sent successfully:', result);
+      setSubmitStatus('success');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      console.error('Error details:', {
+        serviceId: 'service_x71pvhm',
+        templateId: 'template_l9mjm0h',
+        publicKey: '0dC8U10tkq7mtNRcK'
+      });
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    }
   };
 
   const contactInfo = [
@@ -103,14 +144,14 @@ export default function Contact() {
           </div>
           
           <h2 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
               Let's Create
             </span>
             <br />
             <span className="text-white">Something Amazing</span>
           </h2>
           
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 mx-auto rounded-full animate-expand mb-6"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 mx-auto rounded-full mb-6"></div>
           
           <p className="text-xl text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed">
             Ready to transform your ideas into exceptional digital experiences? 
@@ -127,7 +168,7 @@ export default function Contact() {
                 href={info.href}
                 target={info.href.startsWith('http') ? '_blank' : '_self'}
                 rel={info.href.startsWith('http') ? 'noopener noreferrer' : ''}
-                className={`group block relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/50 hover:border-${info.gradient.split(' ')[1]}/50 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl overflow-hidden ${
+                className={`group block relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/50 hover:border-blue-400/50 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl overflow-hidden ${
                   isVisible ? 'animate-slide-in-left' : 'opacity-0'
                 }`}
                 style={{ 
@@ -152,7 +193,7 @@ export default function Contact() {
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:translate-x-1 transition-transform duration-300">
                       {info.title}
                     </h3>
-                    <p className={`text-gray-300 group-hover:text-white font-medium transition-all duration-300 bg-gradient-to-r ${info.gradient} bg-clip-text text-transparent`}>
+                    <p className="text-gray-300 group-hover:text-white font-medium transition-all duration-300">
                       {info.value}
                     </p>
                   </div>
@@ -205,6 +246,35 @@ export default function Contact() {
 
           {/* Enhanced Contact Form */}
           <div className="lg:col-span-3">
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-xl backdrop-blur-sm">
+                <div className="flex items-center gap-3 text-green-400">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <span className="font-semibold">Message sent successfully!</span>
+                  <span className="text-green-300">I'll get back to you soon.</span>
+                </div>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-xl backdrop-blur-sm">
+                <div className="flex items-center gap-3 text-red-400">
+                  <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </div>
+                  <span className="font-semibold">Failed to send message.</span>
+                  <span className="text-red-300">Please try again or email me directly.</span>
+                </div>
+              </div>
+            )}
+
             <form 
               onSubmit={handleSubmit} 
               className={`relative bg-slate-900/60 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 group hover:border-blue-500/50 transition-all duration-500 overflow-hidden ${
@@ -233,6 +303,7 @@ export default function Contact() {
                         className="w-full px-4 py-4 bg-slate-800/30 border border-slate-600/50 rounded-xl text-white focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20 transition-all duration-300 placeholder-gray-500 backdrop-blur-sm"
                         placeholder="Enter your full name"
                         required
+                        disabled={isSubmitting}
                       />
                       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 group-focus-within:w-full transition-all duration-500"></div>
                     </div>
@@ -250,6 +321,7 @@ export default function Contact() {
                         className="w-full px-4 py-4 bg-slate-800/30 border border-slate-600/50 rounded-xl text-white focus:outline-none focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 transition-all duration-300 placeholder-gray-500 backdrop-blur-sm"
                         placeholder="your.email@domain.com"
                         required
+                        disabled={isSubmitting}
                       />
                       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 group-focus-within:w-full transition-all duration-500"></div>
                     </div>
@@ -269,6 +341,7 @@ export default function Contact() {
                       className="w-full px-4 py-4 bg-slate-800/30 border border-slate-600/50 rounded-xl text-white focus:outline-none focus:border-purple-400 focus:ring-4 focus:ring-purple-400/20 transition-all duration-300 placeholder-gray-500 backdrop-blur-sm"
                       placeholder="e.g., Web App Development, UI/UX Design"
                       required
+                      disabled={isSubmitting}
                     />
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-focus-within:w-full transition-all duration-500"></div>
                   </div>
@@ -287,6 +360,7 @@ export default function Contact() {
                       className="w-full px-4 py-4 bg-slate-800/30 border border-slate-600/50 rounded-xl text-white focus:outline-none focus:border-green-400 focus:ring-4 focus:ring-green-400/20 transition-all duration-300 placeholder-gray-500 backdrop-blur-sm resize-none"
                       placeholder="Describe your project vision, timeline, budget, and any specific requirements..."
                       required
+                      disabled={isSubmitting}
                     />
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 group-focus-within:w-full transition-all duration-500"></div>
                   </div>
@@ -343,29 +417,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      {/* Additional CSS for new animations */}
-      <style jsx>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 6s ease infinite;
-        }
-        @keyframes shine {
-          0% { left: -24px; }
-          100% { left: calc(100% + 24px); }
-        }
-        .animate-shine {
-          animation: shine 3s ease-in-out infinite;
-        }
-        .animate-shine-fast {
-          animation: shine 1.5s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 }
