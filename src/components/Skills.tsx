@@ -180,7 +180,7 @@ export default function Skills() {
             <div className="text-gray-400">Development Domains</div>
           </div>
           <div className="stat-card-advanced bg-gradient-to-br from-slate-900/80 to-cyan-900/20 backdrop-blur-xl rounded-2xl p-8 border border-cyan-500/30 text-center">
-            <div className="text-4xl font-bold gradient-text mb-2">5+</div>
+            <div className="text-4xl font-bold gradient-text mb-2">1.5+</div>
             <div className="text-gray-400">Years Experience</div>
           </div>
         </div>

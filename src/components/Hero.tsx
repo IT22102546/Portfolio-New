@@ -166,7 +166,7 @@ export default function Hero() {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-spin-slow"></div>
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-slate-900 shadow-2xl shadow-blue-500/50 transform group-hover:scale-105 transition-transform duration-500">
                 <img
-                  src="assets/MyDP.jpg"
+                  src="/assets/MyDP.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
