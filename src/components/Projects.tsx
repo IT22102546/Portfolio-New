@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Sparkles } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Projects() {
   const projects = [
@@ -48,6 +48,54 @@ export default function Projects() {
       image: '/assets/eco.jpg',
       tags: ['React', 'Node.js', 'MongoDB','Google API'],
       github: 'https://github.com/IT22102546/CSSE_Project',
+      live: 'https://example.com'
+    },
+     {
+      title: 'Learn-App Mobile',
+      description: 'Mobile application for teachers and students to enhance learning experience with interactive quizzes, progress tracking, face recognization in exams, and video conferencing. Built with React Native, Nestjs, MongoDB, and integrated with third-party APIs for video calls and notifications. Deployed on Google Play Store and Apple App Store.',
+      image: '/assets/LearnApp.jpg',
+      tags: ['React Native', 'Nestjs', 'MongoDB','Face Recognition','WebRTC','google Play Store','Apple App Store'],
+      github: 'https://github.com/FAITE-TECH/LearnUp-MobileApp.git',
+      live: 'https://example.com'
+    },
+    {
+      title: 'Viwahaa Matrimony App',
+      description: 'Viwahaa Matrimony mobile application for couple matching and matrimonial service with advanced search filters, profile management and include packagewise custermize Feature messaging and notifications. Built with React Native, Nodejs , SQL with optimization, Tailwind CSS, socket.io. Deployed on Google Play Store and Apple App Store.',
+      image: '/assets/viv.jpg',
+      tags: ['React Native', 'Node.js', 'SQL','Tailwind','Socket.io','google Play Store','Apple App Store'],
+      github: 'https://github.com/FAITE-TECH/Vivaha-Matramony-App',
+      live: 'https://play.google.com/store/apps/details?id=com.adwx2001.Viwahaa'
+    },
+    {
+      title: 'OB Taste Mobile',
+      description: 'Cake Ordering and delivering mobile application with user and admin and rider pannel Built with React Native, Node.js, MongoDB, Tailwind CSS, and integrated with Stripe for secure payments include docker for containerization kubernetes for orchestration.Deployed on Google Play Store and Apple App Store.',
+      image: '/assets/obMob.jpg',
+      tags: ['React Native', 'Node.js', 'MongoDB', 'Tailwind','Stripe','Docker','Kubernetes','google Play Store','Apple App Store'],
+      github: 'https://github.com/FAITE-TECH/OB_Cakes',
+      live: 'https://example.com'
+    },
+     {
+      title: 'Batticaloa Add App',
+      description: 'Batticaloa Add mobile application for local buying and selling with user profiles, product listings, chat messaging,mobile otp verification with twilio and push notifications. Built with React Native, Nodejs , MongoDB with optimization, Tailwind CSS, socket.io. Deployed on Google Play Store and Apple App Store.',
+      image: '/assets/batti.jpg',
+      tags: ['Reat Native', 'Node.js', 'MongoDB','Tailwind','Socket.io','Twilio','google Play Store','Apple App Store'],
+      github: 'https://github.com/FAITE-TECH/Batti-Adds-MobileApp',
+      live: 'https://example.com'
+    },
+    {
+      title: 'Maternity mate App',
+      description: 'Pregnancy tracking and maternity support mobile application with features like due date calculator, contraction timer, appointment reminders, and educational resources. Built with React Native, Nodejs , Firebase , Tailwind CSS, translate api.',
+      image: '/assets/mat.jpg',
+      tags: ['Reat Native', 'Node.js', 'Firebase','Tailwind','Translate API'],
+      github: 'https://github.com/IT22102546/Maternity-Care',
+      live: 'https://example.com'
+    },
+    {
+      title: 'Witch Hunter Mobile Game',
+      description: 'witch Hunter is Kotlin based android mobile game with high score calculator and lives based game. Built with Kotlin, Android Studio, and sqlite for local data storage.',
+      image: '/assets/game.jpg',
+      tags: ['Kotlin', 'Android Studio', 'SQLite'],
+      github: 'https://github.com/IT22102546/Witch-Hunter',
       live: 'https://example.com'
     }
   ];
@@ -133,6 +181,20 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Explore More Button */}
+        <div className="text-center mt-16 animate-fade-in-up">
+          <a
+            href="https://github.com/IT22102546"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 group/explore"
+          >
+            <Github className="w-6 h-6 group-hover/explore:rotate-12 transition-transform" />
+            <span className="text-lg">Explore More on GitHub</span>
+            <ArrowRight className="w-5 h-5 group-hover/explore:translate-x-1 transition-transform" />
+          </a>
         </div>
       </div>
     </section>
