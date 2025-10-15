@@ -3,51 +3,51 @@ import { ExternalLink, Github, Sparkles } from 'lucide-react';
 export default function Projects() {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce solution with payment integration, inventory management, and real-time analytics.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: 'https://github.com',
-      live: 'https://example.com'
+      title: 'aMusic-Bible',
+      description: 'A full-featured Bible song include application with AI chatbot integrated from both English and tamil. Capable of bible reading option with voice assist and song search by lyrics, title, and more. Built with React, Node.js, MongoDB, TensorFlow, Flask, and Stripe for payments with Admin Dashboard.Deployed on Hostinger.',
+      image: '/assets/music.png',
+      tags: ['React', 'Node.js', 'MongoDB', 'Tailwind','TensorFlow','Flask','Stripe','Hostinger'],
+      github: 'https://github.com/IT22102546/BibHost',
+      live: 'https://amusicbible.com'
     },
     {
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for tracking social media metrics across multiple platforms with beautiful data visualizations.',
-      image: 'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Next.js', 'TypeScript', 'Tailwind', 'Charts'],
-      github: 'https://github.com',
-      live: 'https://example.com'
+      title: 'Feraix-Global',
+      description: 'Web application for Feraix Global, a leading provider of innovative tech solutions. Features include service listings, client testimonials, and a blog section. Built with React,  Tailwind CSS, and Chart.js for data visualization. Deployed on Hostinger with Admin Dashboard.',
+      image: '/assets/Feraix.png',
+      tags: ['React', 'Node.js', 'MongoDB','Tailwind CSS','Chart.js','Hostinger'],
+      github: 'https://github.com/IT22102546/FeraixHost',
+      live: 'https://feraix.com'
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates, team chat, and deadline tracking.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Firebase', 'Material-UI'],
+      title: 'Viwahaa Matrimony',
+      description: 'Couple matching and matrimonial service with advanced search filters, profile management and include packagewise custermize Feature. Built with React, Nodejs , SQL with optimization, Tailwind CSS. Deployed on Hostinger Hosting with Admin Dashboard.',
+      image: '/assets/VivM.jpg',
+      tags: ['React', 'Node.js', 'SQL','Tailwind','Hostinger'],
       github: 'https://github.com',
-      live: 'https://example.com'
+      live: 'https://viwahaa.com'
     },
     {
-      title: 'Portfolio Builder',
-      description: 'Drag-and-drop portfolio builder with customizable templates and one-click deployment.',
-      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Redux', 'CSS3'],
-      github: 'https://github.com',
-      live: 'https://example.com'
+      title: 'Aloy Restaurant',
+      description: 'Website for Aloy Restaurant, featuring an elegant design, menu showcase,  and customer reviews. Built with Nextjs, TypeScript , Tailwind CSS, Sanity.io. Deployed on Vercel for optimal performance.',
+      image: '/assets/aloy.png',
+      tags: ['Next.js','TypeScript', 'Tailwind CSS', 'Sanity.io', 'Vercel'],
+      github: 'https://github.com/IT22102546/Alloy',
+      live: 'https://alloy-gamma-ashy.vercel.app/'
     },
     {
-      title: 'Weather Forecast App',
-      description: 'Beautiful weather application with 7-day forecasts, location tracking, and weather alerts.',
-      image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React Native', 'APIs', 'Geolocation'],
-      github: 'https://github.com',
-      live: 'https://example.com'
+      title: 'OB Taste',
+      description: 'Cake Ordering and delivering application with user and admin and rider pannel Built with React , Node.js, MongoDB, Tailwind CSS, and integrated with Stripe for secure payments include docker for containerization kubernetes for orchestration.Deployed on Hostinger.',
+      image: '/assets/ob.jpg',
+      tags: ['React', 'Node.js', 'MongoDB', 'Tailwind','Stripe','Docker','Kubernetes','Hostinger'],
+      github: 'https://github.com/IT22102546/DS-Assignment',
+      live: 'https://obtaste.com/'
     },
     {
-      title: 'AI Chatbot Platform',
-      description: 'Intelligent chatbot with natural language processing and machine learning capabilities.',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Python', 'TensorFlow', 'React', 'WebSocket'],
-      github: 'https://github.com',
+      title: 'Eco Waste',
+      description: 'Waste management system that uses Qr code to identify and sort waste. Features include real-time tracking and waste analytics dashboard for monitoring waste collection and disposal. Built with React, nodejs, MongoDB, and google api',
+      image: '/assets/eco.jpg',
+      tags: ['React', 'Node.js', 'MongoDB','Google API'],
+      github: 'https://github.com/IT22102546/CSSE_Project',
       live: 'https://example.com'
     }
   ];
