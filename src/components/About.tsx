@@ -2,7 +2,7 @@ import { Code, Palette, Zap, Award, Sparkles, Cpu, Cloud, Database, Server, Smar
 
 export default function About() {
   const stats = [
-    { value: '1.5+', label: 'Years Experience', icon: Award },
+    { value: '2+', label: 'Years Experience', icon: Award },
     { value: '40+', label: 'Projects Completed', icon: Code },
     { value: '20+', label: 'Happy Clients', icon: Palette },
     { value: '25+', label: 'Technologies', icon: Zap }

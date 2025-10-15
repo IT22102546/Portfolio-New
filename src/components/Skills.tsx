@@ -180,7 +180,7 @@ export default function Skills() {
             <div className="text-gray-400">Development Domains</div>
           </div>
           <div className="stat-card-advanced bg-gradient-to-br from-slate-900/80 to-cyan-900/20 backdrop-blur-xl rounded-2xl p-8 border border-cyan-500/30 text-center">
-            <div className="text-4xl font-bold gradient-text mb-2">5+</div>
+            <div className="text-4xl font-bold gradient-text mb-2">2+</div>
             <div className="text-gray-400">Years Experience</div>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function Skills() {
           <div className="inline-flex items-center gap-6 bg-slate-900/80 backdrop-blur-xl px-8 py-4 rounded-2xl border border-slate-600/30 animate-pulse-glow">
             <span className="text-gray-300 font-semibold">Deployed on</span>
             <div className="flex items-center gap-4">
-              {['Hostinger', 'Vercel', 'Netlify', 'AWS'].map((platform) => (
+              {['Hostinger', 'Vercel', 'AWS'].map((platform) => (
                 <span key={platform} className="px-3 py-1 bg-slate-800 rounded-full text-sm text-cyan-400 border border-cyan-500/30">
                   {platform}
                 </span>
