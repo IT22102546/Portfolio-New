@@ -1335,3 +1335,262 @@
     z-index: 20;
   }
 }
+
+
+  /* Add these missing utility classes */
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-expand {
+    animation: expand 0.6s ease-out forwards;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 6s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.8s ease-out forwards;
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shine {
+    animation: shine 2s ease-in-out infinite;
+  }
+
+
+/* Add these missing animation keyframes */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 6rem;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(45deg);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ping-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Add these missing component classes */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.4;
+  animation: floatEnhanced 25s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orb-7 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+  top: 40%;
+  right: 20%;
+  animation-delay: 5s;
+}
+
+.timeline-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(59, 130, 246, 0.6) 20%, 
+    rgba(147, 51, 234, 0.8) 50%, 
+    rgba(6, 182, 212, 0.6) 80%, 
+    transparent 100%);
+  filter: blur(10px);
+  animation: timelinePulse 4s ease-in-out infinite;
+}
+
+.experience-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.experience-particles::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  animation: experienceParticleFloat 20s ease-in-out infinite;
+}
+
+.connection-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connection-node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(59, 130, 246, 0.6);
+  border-radius: 50%;
+  animation: nodePulse 3s ease-in-out infinite;
+}
+
+.stat-card-advanced {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.advanced-experience-card {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: experienceSlideIn 0.8s ease-out forwards;
+}
+
+.experience-timeline-card {
+  transition: all 0.5s ease;
+}
+
+/* Add these missing keyframes */
+@keyframes floatEnhanced {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  20% {
+    transform: translate(80px, 60px) scale(1.1) rotate(72deg);
+  }
+  40% {
+    transform: translate(-40px, 100px) scale(0.95) rotate(144deg);
+  }
+  60% {
+    transform: translate(-80px, -20px) scale(1.15) rotate(216deg);
+  }
+  80% {
+    transform: translate(60px, -60px) scale(1.05) rotate(288deg);
+  }
+}
+
+@keyframes timelinePulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes experienceParticleFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes experienceSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

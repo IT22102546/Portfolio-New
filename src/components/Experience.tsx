@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, Award, TrendingUp, Users, Rocket, Star, Zap } from 'lucide-react';
+import { Briefcase, Calendar, Award, TrendingUp, Users, Rocket, Star, Zap, BracesIcon } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 export default function Experience() {
@@ -6,70 +6,88 @@ export default function Experience() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const experiences = [
-    {
-      company: 'FaITe Tech',
-      position: 'Associate Software Engineer',
-      period: '2025 June - Present',
+const experiences = [
+  {
+    company: 'FaITe Tech',
+    position: 'Associate Software Engineer',
+    period: '2025 June - Present',
+    duration: 'Present',
+    description: 'Leading development of enterprise applications using React, Node.js, and cloud technologies. Mentoring junior developers and establishing best practices.',
+    achievements: [
+      'Improved application performance by 60% through advanced optimization techniques',
+      'Led and mentored a team of 5 developers in agile environment',
+      'Implemented Mobile + Web integration with real-time synchronization'
+    ],
+    technologies: ['React', 'Node.js','ReactNative','Flutter', 'AWS', 'MongoDB', 'Docker','Hostinger'],
+    level: 'Associate',
+    icon: <Rocket className="w-6 h-6" />
+  },
+ {
+      company: 'KaralliyaddaOne',
+      position: 'Contract Basis Software Engineer',
+      period: '2024 September - Present',
       duration: 'Present',
-      description: 'Leading development of enterprise applications using React, Node.js, and cloud technologies. Mentoring junior developers and establishing best practices.',
+      description: 'Developing and maintaining scalable web applications for diverse clients. Specializing in frontend architecture and performance optimization.',
       achievements: [
-        'Improved application performance by 60% through advanced optimization techniques',
-        'Led and mentored a team of 5 developers in agile environment',
-        'Implemented Mobile + Web integration with real-time synchronization'
+        'Built 10+ responsive web applications with modern tech stack',
+        'Improved client application performance by 45% through optimization',
+        'Implemented agile development methodologies for faster delivery'
       ],
-      technologies: ['React', 'Node.js','ReactNative','Flutter', 'AWS', 'MongoDB', 'Docker','Hostinger'],
-      level: 'Associate',
-      icon: <Rocket className="w-6 h-6" />
+      technologies: ['React', 'JavaScript', 'Nestjs','Sanity.io','TypeScript', 'Node.js', 'MongoDB', 'AWS'],
+      level: 'Senior',
+      icon: <Briefcase className="w-6 h-6" />
     },
-    {
-      company: 'FaITe Tech',
-      position: 'Trainee Software Engineer',
-      period: '2025 January - 2025 June',
-      duration: '6 Months',
-      description: 'Developed and maintained multiple client projects using modern web technologies. Collaborated with design and product teams to deliver exceptional user experiences.',
-      achievements: [
-        'Delivered 20+ successful projects with 100% client satisfaction',
-        'Reduced application load times by 40% through code optimization',
-        'Introduced comprehensive automated testing pipeline'
-      ],
-      technologies: ['JavaScript', 'React', 'ReactNative','Python', 'PostgreSQL', 'Git','Hostinger'],
-      level: 'Mid-Level',
-      icon: <TrendingUp className="w-6 h-6" />
+  {
+    company: 'FaITe Tech',
+    position: 'Trainee Software Engineer',
+    period: '2025 January - 2025 June',
+    duration: '6 Months',
+    description: 'Developed and maintained multiple client projects using modern web technologies. Collaborated with design and product teams to deliver exceptional user experiences.',
+    achievements: [
+      'Delivered 20+ successful projects with 100% client satisfaction',
+      'Reduced application load times by 40% through code optimization',
+      'Introduced comprehensive automated testing pipeline'
+    ],
+    technologies: ['JavaScript', 'React', 'ReactNative','Python', 'PostgreSQL', 'Git','Hostinger'],
+    level: 'Mid-Level',
+    icon: <TrendingUp className="w-6 h-6" />
+  },
+  {
+    company: 'FaITe Tech',
+    position: 'Intern Software Engineer',
+    period: '2024 May - 2024 December',
+    duration: '8 Months',
+    description: 'Built responsive web applications and worked on Full stack development. Focused on creating seamless user experiences across multiple platforms.',
+    achievements: [
+      'Integrated advanced hosting solutions with CI/CD pipelines',
+      'Designed and developed 15+ Full stack applications',
+      'Implemented comprehensive responsive design system'
+    ],
+    technologies: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'MySQL','Hostinger'],
+    level: 'Junior',
+    icon: <Users className="w-6 h-6" />
+  }
+];
+
+useEffect(() => {
+  // Temporary: Force visibility for debugging
+  setIsVisible(true);
+  
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
     },
-    {
-      company: 'FaITe Tech',
-      position: 'Intern Software Engineer',
-      period: '2024 May - 2024 December',
-      duration: '8 Months',
-      description: 'Built responsive web applications and worked on Full stack development. Focused on creating seamless user experiences across multiple platforms.',
-      achievements: [
-        'Integrated advanced hosting solutions with CI/CD pipelines',
-        'Designed and developed 15+ Full stack applications',
-        'Implemented comprehensive responsive design system'
-      ],
-      technologies: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'MySQL','Hostinger'],
-      level: 'Junior',
-      icon: <Users className="w-6 h-6" />
-    }
-  ];
+    { threshold: 0.1 } // Lower threshold
+  );
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
   return (
     <section id="experience" className="relative py-32 overflow-hidden min-h-screen" ref={sectionRef}>
@@ -108,41 +126,41 @@ export default function Experience() {
                 <Briefcase className="w-6 h-6" />
                 Roles
               </h3>
-              <div className="space-y-3">
-                {experiences.map((exp, index) => (
-                  <button
-                    key={exp.position}
-                    onClick={() => setActiveExp(index)}
-                    className={`w-full text-left p-4 rounded-xl transition-all duration-500 transform hover:scale-105 ${
-                      activeExp === index
-                        ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/50 shadow-2xl shadow-blue-500/20'
-                        : 'bg-slate-800/50 border border-slate-600/30 hover:border-slate-500/50'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${
-                        activeExp === index 
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' 
-                          : 'bg-slate-700 text-gray-400'
-                      }`}>
-                        {exp.icon}
-                      </div>
-                      <div>
-                        <h4 className={`font-semibold text-sm ${
-                          activeExp === index ? 'text-white' : 'text-gray-400'
-                        }`}>
-                          {exp.position.split(' ')[0]}
-                        </h4>
-                        <p className={`text-xs ${
-                          activeExp === index ? 'text-blue-300' : 'text-gray-500'
-                        }`}>
-                          {exp.duration}
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
+            <div className="space-y-3">
+  {experiences.map((exp, index) => (
+    <button
+      key={`${exp.company}-${exp.position}-${index}`} 
+      onClick={() => setActiveExp(index)}
+      className={`w-full text-left p-4 rounded-xl transition-all duration-500 transform hover:scale-105 ${
+        activeExp === index
+          ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/50 shadow-2xl shadow-blue-500/20'
+          : 'bg-slate-800/50 border border-slate-600/30 hover:border-slate-500/50'
+      }`}
+    >
+      <div className="flex items-center gap-3">
+        <div className={`p-2 rounded-lg ${
+          activeExp === index 
+            ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' 
+            : 'bg-slate-700 text-gray-400'
+        }`}>
+          {exp.icon}
+        </div>
+        <div>
+          <h4 className={`font-semibold text-sm ${
+            activeExp === index ? 'text-white' : 'text-gray-400'
+          }`}>
+            {exp.position.split(' ')[0]}
+          </h4>
+          <p className={`text-xs ${
+            activeExp === index ? 'text-blue-300' : 'text-gray-500'
+          }`}>
+            {exp.duration}
+          </p>
+        </div>
+      </div>
+    </button>
+  ))}
+</div>
 
               {/* Progress Indicator */}
               <div className="mt-6 p-4 bg-slate-800/50 rounded-xl border border-slate-600/30">
