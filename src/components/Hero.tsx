@@ -13,7 +13,7 @@ export default function Hero() {
         <div>
           <div className="reveal mb-6 inline-flex max-w-full items-center gap-2.5 rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-3.5 py-1.5 text-sm text-emerald-200">
             <span className="live-dot h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
-            Solution Engineer at Emojot · open to freelance work
+            Solution Engineer at Emojot
           </div>
 
           <h1 className="reveal text-5xl font-bold leading-[1.02] text-white sm:text-6xl lg:text-7xl" style={{ ['--d' as string]: '80ms' }}>

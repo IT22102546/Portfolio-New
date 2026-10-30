@@ -141,6 +141,7 @@ export const featured: Project[] = [
       '300+ commits across NestJS, Prisma and Next.js apps',
     ],
     image: '/assets/jlracing.jpg',
+    live: 'https://jlracingshop.com',
     tags: ['NestJS', 'Next.js', 'Prisma', 'PostgreSQL', 'Turborepo', 'Docker'],
     accent: 'from-red-500/30 to-amber-500/20',
   },
