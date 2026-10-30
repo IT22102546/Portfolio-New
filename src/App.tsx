@@ -1,23 +1,29 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
-import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Skills from './components/Skills';
+import { useReveal, useSpotlight } from './hooks';
 
 function App() {
+  useReveal();
+  useSpotlight();
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
-      <div className="animated-bg"></div>
+    <div className="relative min-h-screen overflow-x-clip">
+      <div className="page-bg" />
       <Navigation />
-      <Hero />
-      <About />
-      <Skills/>
-      <Projects />
-      <Experience />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

@@ -1,200 +1,150 @@
-import { ExternalLink, Github, Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Github, Check, Building2 } from 'lucide-react';
+import { featured, emojotWork, moreProjects, profile, type Project } from '../data';
+
+function Links({ p }: { p: Project }) {
+  return (
+    <div className="flex items-center gap-2">
+      {p.code && (
+        <a href={p.code} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} code`} className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-zinc-300 transition hover:border-white/30 hover:text-white">
+          <Github className="h-4 w-4" />
+        </a>
+      )}
+      {p.live && (
+        <a href={p.live} target="_blank" rel="noopener noreferrer" className="group/l inline-flex h-9 items-center gap-1.5 rounded-lg bg-white px-3 text-sm font-semibold text-zinc-900 transition hover:bg-violet-100">
+          Live
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover/l:-translate-y-0.5 group-hover/l:translate-x-0.5" />
+        </a>
+      )}
+    </div>
+  );
+}
+
+function Visual({ p, tall }: { p: Project; tall?: boolean }) {
+  if (p.image) {
+    return (
+      <div className={`relative overflow-hidden rounded-xl border border-white/10 ${tall ? 'aspect-[16/10]' : 'aspect-[16/9]'}`}>
+        <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07070c]/60 to-transparent" />
+      </div>
+    );
+  }
+  return (
+    <div className={`relative grid place-items-center overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br ${p.accent} ${tall ? 'aspect-[16/10]' : 'aspect-[16/9]'}`}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.4)_1px,transparent_1px)] [background-size:18px_18px]" />
+      <span className="relative font-display text-4xl font-bold text-white/90 transition-transform duration-700 group-hover:scale-105 md:text-5xl">{p.title}</span>
+    </div>
+  );
+}
+
+const bars = ['from-sky-500 to-indigo-500', 'from-teal-500 to-emerald-500', 'from-violet-500 to-sky-500', 'from-pink-500 to-orange-500'];
 
 export default function Projects() {
-  const projects = [
-    {
-      title: 'aMusic-Bible',
-      description: 'A full-featured Bible song include application with AI chatbot integrated from both English and tamil. Capable of bible reading option with voice assist and song search by lyrics, title, and more. Built with React, Node.js, MongoDB, TensorFlow, Flask, and Stripe for payments with Admin Dashboard.Deployed on Hostinger.',
-      image: '/assets/music.png',
-      tags: ['React', 'Node.js', 'MongoDB', 'Tailwind','TensorFlow','Flask','Stripe','Hostinger'],
-      github: 'https://github.com/IT22102546/BibHost',
-      live: 'https://amusicbible.com'
-    },
-    {
-      title: 'Feraix-Global',
-      description: 'Web application for Feraix Global, a leading provider of innovative tech solutions. Features include service listings, client testimonials, and a blog section. Built with React,  Tailwind CSS, and Chart.js for data visualization. Deployed on Hostinger with Admin Dashboard.',
-      image: '/assets/Feraix.png',
-      tags: ['React', 'Node.js', 'MongoDB','Tailwind CSS','Chart.js','Hostinger'],
-      github: 'https://github.com/IT22102546/FeraixHost',
-      live: 'https://feraix.com'
-    },
-    {
-      title: 'Viwahaa Matrimony',
-      description: 'Couple matching and matrimonial service with advanced search filters, profile management and include packagewise custermize Feature. Built with React, Nodejs , SQL with optimization, Tailwind CSS. Deployed on Hostinger Hosting with Admin Dashboard.',
-      image: '/assets/VivM.jpg',
-      tags: ['React', 'Node.js', 'SQL','Tailwind','Hostinger'],
-      github: 'https://github.com',
-      live: 'https://viwahaa.com'
-    },
-    {
-      title: 'Aloy Restaurant',
-      description: 'Website for Aloy Restaurant, featuring an elegant design, menu showcase,  and customer reviews. Built with Nextjs, TypeScript , Tailwind CSS, Sanity.io. Deployed on Vercel for optimal performance.',
-      image: '/assets/aloy.png',
-      tags: ['Next.js','TypeScript', 'Tailwind CSS', 'Sanity.io', 'Vercel'],
-      github: 'https://github.com/IT22102546/Alloy',
-      live: 'https://alloy-gamma-ashy.vercel.app/'
-    },
-    {
-      title: 'OB Taste',
-      description: 'Cake Ordering and delivering application with user and admin and rider pannel Built with React , Node.js, MongoDB, Tailwind CSS, and integrated with Stripe for secure payments include docker for containerization kubernetes for orchestration.Deployed on Hostinger.',
-      image: '/assets/ob.jpg',
-      tags: ['React', 'Node.js', 'MongoDB', 'Tailwind','Stripe','Docker','Kubernetes','Hostinger'],
-      github: 'https://github.com/IT22102546/DS-Assignment',
-      live: 'https://obtaste.com/'
-    },
-    {
-      title: 'Eco Waste',
-      description: 'Waste management system that uses Qr code to identify and sort waste. Features include real-time tracking and waste analytics dashboard for monitoring waste collection and disposal. Built with React, nodejs, MongoDB, and google api',
-      image: '/assets/eco.jpg',
-      tags: ['React', 'Node.js', 'MongoDB','Google API'],
-      github: 'https://github.com/IT22102546/CSSE_Project',
-      live: 'https://example.com'
-    },
-     {
-      title: 'Learn-App Mobile',
-      description: 'Mobile application for teachers and students to enhance learning experience with interactive quizzes, progress tracking, face recognization in exams, and video conferencing. Built with React Native, Nestjs, MongoDB, and integrated with third-party APIs for video calls and notifications. Deployed on Google Play Store and Apple App Store.',
-      image: '/assets/LearnApp.jpg',
-      tags: ['React Native', 'Nestjs', 'MongoDB','Face Recognition','WebRTC','google Play Store','Apple App Store'],
-      github: 'https://github.com/FAITE-TECH/LearnUp-MobileApp.git',
-      live: 'https://example.com'
-    },
-    {
-      title: 'Viwahaa Matrimony App',
-      description: 'Viwahaa Matrimony mobile application for couple matching and matrimonial service with advanced search filters, profile management and include packagewise custermize Feature messaging and notifications. Built with React Native, Nodejs , SQL with optimization, Tailwind CSS, socket.io. Deployed on Google Play Store and Apple App Store.',
-      image: '/assets/viv.jpg',
-      tags: ['React Native', 'Node.js', 'SQL','Tailwind','Socket.io','google Play Store','Apple App Store'],
-      github: 'https://github.com/FAITE-TECH/Vivaha-Matramony-App',
-      live: 'https://play.google.com/store/apps/details?id=com.adwx2001.Viwahaa'
-    },
-    {
-      title: 'OB Taste Mobile',
-      description: 'Cake Ordering and delivering mobile application with user and admin and rider pannel Built with React Native, Node.js, MongoDB, Tailwind CSS, and integrated with Stripe for secure payments include docker for containerization kubernetes for orchestration.Deployed on Google Play Store and Apple App Store.',
-      image: '/assets/obMob.jpg',
-      tags: ['React Native', 'Node.js', 'MongoDB', 'Tailwind','Stripe','Docker','Kubernetes','google Play Store','Apple App Store'],
-      github: 'https://github.com/FAITE-TECH/OB_Cakes',
-      live: 'https://example.com'
-    },
-     {
-      title: 'Batticaloa Add App',
-      description: 'Batticaloa Add mobile application for local buying and selling with user profiles, product listings, chat messaging,mobile otp verification with twilio and push notifications. Built with React Native, Nodejs , MongoDB with optimization, Tailwind CSS, socket.io. Deployed on Google Play Store and Apple App Store.',
-      image: '/assets/batti.jpg',
-      tags: ['Reat Native', 'Node.js', 'MongoDB','Tailwind','Socket.io','Twilio','google Play Store','Apple App Store'],
-      github: 'https://github.com/FAITE-TECH/Batti-Adds-MobileApp',
-      live: 'https://example.com'
-    },
-    {
-      title: 'Maternity mate App',
-      description: 'Pregnancy tracking and maternity support mobile application with features like due date calculator, contraction timer, appointment reminders, and educational resources. Built with React Native, Nodejs , Firebase , Tailwind CSS, translate api.',
-      image: '/assets/mat.jpg',
-      tags: ['Reat Native', 'Node.js', 'Firebase','Tailwind','Translate API'],
-      github: 'https://github.com/IT22102546/Maternity-Care',
-      live: 'https://example.com'
-    },
-    {
-      title: 'Witch Hunter Mobile Game',
-      description: 'witch Hunter is Kotlin based android mobile game with high score calculator and lives based game. Built with Kotlin, Android Studio, and sqlite for local data storage.',
-      image: '/assets/game.jpg',
-      tags: ['Kotlin', 'Android Studio', 'SQLite'],
-      github: 'https://github.com/IT22102546/Witch-Hunter',
-      live: 'https://example.com'
-    }
-  ];
-
   return (
-    <section id="projects" className="relative py-32 overflow-hidden">
-      <div className="floating-orb orb-6"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text animate-slide-in-bottom">
-            Featured Projects
+    <section id="projects" className="relative py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="section-label reveal">Selected work</p>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="reveal text-4xl font-bold text-white md:text-5xl">
+            Projects I'm <span className="text-gradient">proud of</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full animate-expand"></div>
-          <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
-            Showcasing some of my best work and creative solutions
-          </p>
+          <p className="reveal max-w-md text-zinc-400">Production systems for real clients: healthcare, retail, automotive and research.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="project-card group relative bg-slate-900/80 backdrop-blur-sm rounded-xl overflow-hidden border border-blue-500/30 hover:border-blue-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500"></div>
-
-              <div className="relative overflow-hidden h-48">
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute top-4 right-4 z-20">
-                  <div className="px-3 py-1 bg-blue-500/90 backdrop-blur-sm rounded-full flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-white" />
-                    <span className="text-xs text-white font-semibold">Featured</span>
-                  </div>
+        {/* Featured */}
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {featured.map((p, i) => (
+            <article key={p.title} className="card group reveal flex flex-col p-4" style={{ ['--d' as string]: `${(i % 2) * 80}ms` }}>
+              <Visual p={p} tall />
+              <div className="flex flex-1 flex-col p-3 pt-6">
+                <p className="font-mono text-xs uppercase tracking-wider text-violet-300/80">{p.kind}</p>
+                <div className="mt-2 flex items-start justify-between gap-4">
+                  <h3 className="text-2xl font-bold text-white">{p.title}</h3>
+                  <Links p={p} />
                 </div>
-              </div>
-
-              <div className="relative p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs bg-blue-500/10 border border-blue-500/30 text-blue-300 rounded-full hover:bg-blue-500/20 transition-colors"
-                    >
-                      {tag}
-                    </span>
+                <p className="mt-3 leading-relaxed text-zinc-400">{p.description}</p>
+                {p.highlights && (
+                  <ul className="mt-4 space-y-2">
+                    {p.highlights.map((h) => (
+                      <li key={h} className="flex gap-2.5 text-sm text-zinc-300">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                  {p.tags.map((t) => (
+                    <span key={t} className="chip">{t}</span>
                   ))}
                 </div>
-
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors group/link"
-                  >
-                    <Github className="w-5 h-5 group-hover/link:rotate-12 transition-transform" />
-                    <span className="text-sm">Code</span>
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors group/link"
-                  >
-                    <ExternalLink className="w-5 h-5 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                    <span className="text-sm">Live Demo</span>
-                  </a>
-                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* Explore More Button */}
-        <div className="text-center mt-16 animate-fade-in-up">
-          <a
-            href="https://github.com/IT22102546"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 group/explore"
-          >
-            <Github className="w-6 h-6 group-hover/explore:rotate-12 transition-transform" />
-            <span className="text-lg">Explore More on GitHub</span>
-            <ArrowRight className="w-5 h-5 group-hover/explore:translate-x-1 transition-transform" />
-          </a>
+        {/* Emojot */}
+        <div className="mt-24">
+          <div className="reveal flex items-center gap-3">
+            <div className="grid h-10 w-10 place-items-center rounded-xl bg-sky-500/10 text-sky-300 ring-1 ring-sky-400/20">
+              <Building2 className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-white">Built at Emojot</h3>
+              <p className="text-sm text-zinc-400">Client and internal work. Code is private.</p>
+            </div>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {emojotWork.map((p, i) => (
+              <article key={p.title} className="card reveal flex flex-col overflow-hidden" style={{ ['--d' as string]: `${i * 70}ms` }}>
+                <div className={`h-1.5 bg-gradient-to-r ${bars[i % bars.length]}`} />
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">{p.kind}</p>
+                  <h4 className="mt-2 text-lg font-semibold text-white">{p.title}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{p.description}</p>
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                    {p.tags.map((t) => (
+                      <span key={t} className="chip text-[11px]">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* More */}
+        <div className="mt-24">
+          <h3 className="reveal text-2xl font-bold text-white">More projects</h3>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {moreProjects.map((p, i) => (
+              <article key={p.title} className="card group reveal flex flex-col p-3" style={{ ['--d' as string]: `${(i % 3) * 70}ms` }}>
+                <Visual p={p} />
+                <div className="flex flex-1 flex-col p-3 pt-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">{p.kind}</p>
+                      <h4 className="mt-1 text-lg font-semibold text-white">{p.title}</h4>
+                    </div>
+                    <Links p={p} />
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{p.description}</p>
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
+                    {p.tags.map((t) => (
+                      <span key={t} className="chip text-[11px]">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="reveal mt-12 text-center">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/5">
+              <Github className="h-5 w-5" /> 50+ more on GitHub
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
