@@ -42,18 +42,20 @@ export type Job = {
 export const experience: Job[] = [
   {
     company: 'Emojot',
-    role: 'Software Engineer (Solutions & Configuration)',
+    role: 'Solution Engineer',
     type: 'Full-time',
     period: 'May 2026 – Present',
     current: true,
     points: [
       'Configure the Emojot CX and workflow platform for enterprise clients across banking, telco, healthcare, retail and hospitality.',
-      'Design JSON workflows with status transitions, role-based fields, auto-numbering and service scheduling, including a full Maintenance Management System.',
+      'Built the Dipra Maintenance Management System: six linked workflows for customers, suppliers, locations, products, installed machines and AMC/warranty agreements, with auto-generated service schedules and a MongoDB trigger that keeps master data in sync.',
+      'Design JSON workflows with status transitions, role-based fields, auto-numbering and service scheduling for clients across industries.',
       'Write complex event processing rules (XML engagement rules) for complaint escalation, SLA alerts, ORM and appointment-banking flows, plus custom skins and CX portals.',
       'Write Node.js MongoDB Atlas triggers on change streams: master-data sync across linked workflows, and AI review triage where Gemini scores sentiment and negative reviews auto-create recovery cases.',
       'Work on Emojot web apps with Angular, including the visitor management system.',
       'Built a bank branch kiosk Android app (Expo, React Native) with a native kiosk-mode module, PIN-protected admin and idle-timeout reset.',
       'Built a lead capture and booking popup (Wix + Vercel + Google Apps Script) with round-robin assignment, Calendar availability and Meet links.',
+      'Built two internal bulk upload tools used by the team: Admin Hierarchy upload (workflow JSON → Excel template → validated upload with a pre-write safety check) and Comm-Center Users upload (create missing users and add them to lists).',
       'Built an internal Google Chat connector for ChatGPT: an MCP server on Apps Script behind a Vercel relay, with 7 tools across 350+ spaces.',
     ],
     tags: ['Workflows', 'CEP Rules', 'Node.js', 'MongoDB Triggers', 'Angular', 'React Native', 'Apps Script', 'MCP'],
@@ -109,6 +111,7 @@ export type Project = {
   live?: string;
   code?: string;
   accent: string; // tailwind gradient classes used when there is no image
+  wide?: boolean; // spans two columns in the Emojot grid
 };
 
 export const featured: Project[] = [
@@ -174,20 +177,29 @@ export const featured: Project[] = [
 
 export const emojotWork: Project[] = [
   {
-    title: 'Bank Branch Kiosk App',
-    kind: 'Emojot · Android',
+    title: 'Dipra Maintenance Management System',
+    kind: 'Emojot · Dipra · Workflows + triggers',
     description:
-      'Expo SDK 58 kiosk app that shows the Emojot feedback sensor, opens the bank’s product site in a controlled browser and resets after an idle countdown. One APK for every branch via a remote registry.',
-    tags: ['Expo', 'React Native', 'TypeScript', 'EAS', 'Kotlin module'],
-    accent: 'from-sky-500/30 to-indigo-500/20',
+      'End-to-end maintenance platform for Dipra on Emojot: six linked workflows for customers, suppliers, locations, product catalog, installed machines and AMC/warranty agreements. Agreements generate 1–12 service schedules with status and completion dates, payment tracking and approval states, and a Node.js MongoDB Atlas trigger syncs master data across every linked workflow.',
+    tags: ['Emojot Workflows', 'JSON', 'Node.js', 'MongoDB Atlas Triggers', 'Automation'],
+    accent: '',
+    wide: true,
   },
   {
-    title: 'Maintenance Management System',
-    kind: 'Emojot · Workflows',
+    title: 'Admin Hierarchy Bulk Upload',
+    kind: 'Emojot · Internal tool',
     description:
-      'Six linked workflows for customers, suppliers, locations, products, installed machines and AMC/warranty agreements, with auto-generated service schedules.',
-    tags: ['Emojot Workflows', 'JSON', 'Automation'],
-    accent: 'from-teal-500/30 to-emerald-500/20',
+      'Web tool that reads a workflow JSON, builds the Excel template, validates every row against the workflow and uploads the admin hierarchy. A read-only safety check stops the run before any write if a row would duplicate or touch another hierarchy.',
+    tags: ['JavaScript', 'SheetJS', 'REST API', 'Vercel'],
+    accent: '',
+  },
+  {
+    title: 'Comm-Center Users Bulk Upload',
+    kind: 'Emojot · Internal tool',
+    description:
+      'Builds a template from the company’s profile fields, creates missing users from a filled Excel sheet and adds everyone to the chosen Comm-Center lists, never changing existing users.',
+    tags: ['JavaScript', 'SheetJS', 'REST API', 'Vercel'],
+    accent: '',
   },
   {
     title: 'AI Review Triage Trigger',
@@ -195,7 +207,7 @@ export const emojotWork: Project[] = [
     description:
       'Node.js Atlas trigger on new online reviews: Gemini analyses sentiment, and negative or 1–2 star reviews automatically open a linked recovery case, with field mapping read from config.',
     tags: ['Node.js', 'MongoDB Atlas', 'Change Streams', 'Gemini'],
-    accent: 'from-amber-500/30 to-rose-500/20',
+    accent: '',
   },
   {
     title: 'Google Chat → ChatGPT Connector',
@@ -203,7 +215,16 @@ export const emojotWork: Project[] = [
     description:
       'Read-only MCP server on Google Apps Script with a Vercel relay. Indexes 11,000+ messages over 90 days, synced every 5 minutes.',
     tags: ['MCP', 'Apps Script', 'Vercel', 'Google Chat API'],
-    accent: 'from-violet-500/30 to-sky-500/20',
+    accent: '',
+  },
+  {
+    title: 'Bank Branch Kiosk App',
+    kind: 'Emojot · Android',
+    description:
+      'Expo SDK 58 kiosk app that shows the Emojot feedback sensor, opens the bank’s product site in a controlled browser and resets after an idle countdown. One APK for every branch via a remote registry, with a native kiosk-mode module and PIN-protected admin.',
+    tags: ['Expo', 'React Native', 'TypeScript', 'EAS', 'Kotlin module'],
+    accent: '',
+    wide: true,
   },
   {
     title: 'Register & Booking Popup',
@@ -211,7 +232,7 @@ export const emojotWork: Project[] = [
     description:
       'Wix landing page popup with a Vercel-hosted script and Apps Script backend: live Calendar availability, round-robin assignment, Meet links and email alerts.',
     tags: ['Wix', 'Vercel', 'Apps Script', 'Google Calendar'],
-    accent: 'from-pink-500/30 to-orange-500/20',
+    accent: '',
   },
 ];
 

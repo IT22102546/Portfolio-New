@@ -107,7 +107,8 @@ h1, h2, h3, .font-display {
 .card {
   position: relative;
   border-radius: 1.25rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)), rgba(10, 10, 18, 0.72);
+  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
   isolation: isolate;
