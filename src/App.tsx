@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Background from './components/Background';
 import { useReveal, useSpotlight } from './hooks';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip">
-      <div className="page-bg" />
+      <Background />
       <Navigation />
       <main>
         <Hero />

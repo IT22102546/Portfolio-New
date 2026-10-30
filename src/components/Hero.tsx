@@ -79,10 +79,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="card absolute -left-8 top-12 hidden rounded-xl bg-[#0b0b14]/80 px-4 py-3 backdrop-blur-xl sm:block">
-            <p className="font-display text-2xl font-bold text-white">30+</p>
-            <p className="text-xs text-zinc-400">enterprise clients</p>
-          </div>
           <div className="card absolute -right-6 bottom-28 hidden rounded-xl bg-[#0b0b14]/80 px-4 py-3 backdrop-blur-xl sm:block">
             <p className="font-display text-2xl font-bold text-white">50+</p>
             <p className="text-xs text-zinc-400">projects shipped</p>
@@ -91,7 +87,7 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto mt-20 w-full max-w-6xl px-6">
-      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
+      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3">
         {stats.map((s, i) => (
           <div key={s.label} className="reveal bg-[#09090f] p-6" style={{ ['--d' as string]: `${i * 80}ms` }}>
             <p className="font-display text-4xl font-bold text-white">{s.value}</p>

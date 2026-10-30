@@ -18,7 +18,6 @@ export const profile = {
 
 export const stats = [
   { value: '2+', label: 'Years building production software' },
-  { value: '30+', label: 'Enterprise clients configured at Emojot' },
   { value: '50+', label: 'Projects shipped and on GitHub' },
   { value: '4', label: 'Companies and freelance clients' },
 ];
@@ -48,7 +47,7 @@ export const experience: Job[] = [
     period: 'May 2026 – Present',
     current: true,
     points: [
-      'Configure the Emojot CX and workflow platform for 30+ enterprise clients across banking, telco, healthcare, retail and hospitality.',
+      'Configure the Emojot CX and workflow platform for enterprise clients across banking, telco, healthcare, retail and hospitality.',
       'Design JSON workflows with status transitions, role-based fields, auto-numbering and service scheduling, including a full Maintenance Management System.',
       'Write complex event processing rules (XML engagement rules) for complaint escalation, SLA alerts, ORM and appointment-banking flows, plus custom skins and CX portals.',
       'Write Node.js MongoDB Atlas triggers on change streams: master-data sync across linked workflows, and AI review triage where Gemini scores sentiment and negative reviews auto-create recovery cases.',
@@ -138,6 +137,7 @@ export const featured: Project[] = [
       'Export vehicles and a full accounts module',
       '300+ commits across NestJS, Prisma and Next.js apps',
     ],
+    image: '/assets/jlracing.jpg',
     tags: ['NestJS', 'Next.js', 'Prisma', 'PostgreSQL', 'Turborepo', 'Docker'],
     accent: 'from-red-500/30 to-amber-500/20',
   },
