@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Mail, Phone, MessageCircle, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { profile } from '../data';
 
 // EmailJS public IDs (safe to ship in the browser).
@@ -40,7 +40,8 @@ export default function Contact() {
 
   const channels = [
     { icon: Mail, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { icon: Phone, label: 'Phone / WhatsApp', value: profile.phone, href: profile.whatsapp },
+    { icon: Phone, label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
+    { icon: MessageCircle, label: 'WhatsApp', value: profile.whatsappNumber, href: profile.whatsapp },
     { icon: MapPin, label: 'Location', value: profile.location, href: 'https://maps.google.com/?q=Colombo,Sri+Lanka' },
   ];
 

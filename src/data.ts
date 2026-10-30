@@ -9,7 +9,8 @@ export const profile = {
   location: 'Colombo, Sri Lanka',
   email: 'sanjana.nim2001@gmail.com',
   phone: '+94 71 148 4037',
-  whatsapp: 'https://wa.me/94711484037',
+  whatsappNumber: '+94 76 989 9882',
+  whatsapp: 'https://wa.me/94769899882',
   github: 'https://github.com/IT22102546',
   linkedin: 'https://www.linkedin.com/in/sanjana-nimesh-a4b5a8252/',
   photo: '/assets/MyDP.jpg',
@@ -50,11 +51,13 @@ export const experience: Job[] = [
       'Configure the Emojot CX and workflow platform for 30+ enterprise clients across banking, telco, healthcare, retail and hospitality.',
       'Design JSON workflows with status transitions, role-based fields, auto-numbering and service scheduling, including a full Maintenance Management System.',
       'Write complex event processing rules (XML engagement rules) for complaint escalation, SLA alerts, ORM and appointment-banking flows, plus custom skins and CX portals.',
+      'Write Node.js MongoDB Atlas triggers on change streams: master-data sync across linked workflows, and AI review triage where Gemini scores sentiment and negative reviews auto-create recovery cases.',
+      'Work on Emojot web apps with Angular, including the visitor management system.',
       'Built a bank branch kiosk Android app (Expo, React Native) with a native kiosk-mode module, PIN-protected admin and idle-timeout reset.',
       'Built a lead capture and booking popup (Wix + Vercel + Google Apps Script) with round-robin assignment, Calendar availability and Meet links.',
       'Built an internal Google Chat connector for ChatGPT: an MCP server on Apps Script behind a Vercel relay, with 7 tools across 350+ spaces.',
     ],
-    tags: ['Workflows', 'CEP Rules', 'React Native', 'Apps Script', 'MCP', 'Vercel'],
+    tags: ['Workflows', 'CEP Rules', 'Node.js', 'MongoDB Triggers', 'Angular', 'React Native', 'Apps Script', 'MCP'],
   },
   {
     company: 'Freelance',
@@ -187,6 +190,14 @@ export const emojotWork: Project[] = [
     accent: 'from-teal-500/30 to-emerald-500/20',
   },
   {
+    title: 'AI Review Triage Trigger',
+    kind: 'Emojot · MongoDB trigger',
+    description:
+      'Node.js Atlas trigger on new online reviews: Gemini analyses sentiment, and negative or 1–2 star reviews automatically open a linked recovery case, with field mapping read from config.',
+    tags: ['Node.js', 'MongoDB Atlas', 'Change Streams', 'Gemini'],
+    accent: 'from-amber-500/30 to-rose-500/20',
+  },
+  {
     title: 'Google Chat → ChatGPT Connector',
     kind: 'Emojot · Internal AI tool',
     description:
@@ -294,10 +305,10 @@ export const moreProjects: Project[] = [
 
 export const skills: { group: string; items: string[] }[] = [
   { group: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'Kotlin', 'SQL'] },
-  { group: 'Frontend', items: ['React', 'Next.js', 'Vite', 'Redux', 'Tailwind CSS', 'HTML/CSS'] },
+  { group: 'Frontend', items: ['React', 'Next.js', 'Angular', 'Vite', 'Redux', 'Tailwind CSS', 'HTML/CSS'] },
   { group: 'Backend', items: ['NestJS', 'Node.js', 'Express', 'Flask', 'REST APIs', 'Prisma'] },
   { group: 'Mobile', items: ['React Native', 'Expo', 'EAS Build', 'Native Android modules'] },
-  { group: 'Databases', items: ['PostgreSQL', 'MongoDB', 'Supabase', 'Firebase', 'SQLite'] },
+  { group: 'Databases', items: ['PostgreSQL', 'MongoDB', 'MongoDB Atlas Triggers', 'Supabase', 'Firebase', 'SQLite'] },
   {
     group: 'DevOps & Cloud',
     items: ['Docker', 'Kubernetes', 'CI/CD pipelines', 'GitHub', 'Turborepo / pnpm', 'PM2', 'Vercel', 'Hostinger', 'AWS', 'Azure', 'Cloudflare Workers'],
@@ -306,7 +317,7 @@ export const skills: { group: string; items: string[] }[] = [
     group: 'Platforms & Integrations',
     items: ['Emojot CX platform', 'CEP / XML rules', 'Google Apps Script', 'Google Calendar, Meet & Chat APIs', 'Wix custom code', 'Sanity CMS', 'Stripe', 'Twilio', 'Webhooks'],
   },
-  { group: 'AI', items: ['OpenAI APIs', 'Claude Code', 'MCP servers', 'ChatGPT plugins', 'TensorFlow', 'LSTM models'] },
+  { group: 'AI', items: ['OpenAI APIs', 'Google Gemini', 'Claude Code', 'MCP servers', 'ChatGPT plugins', 'TensorFlow', 'LSTM models'] },
   { group: 'Testing & Tools', items: ['Postman', 'Selenium', 'Git', 'Jira', 'ClickUp', 'Agile / Scrum'] },
 ];
 

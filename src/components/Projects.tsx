@@ -37,7 +37,7 @@ function Visual({ p, tall }: { p: Project; tall?: boolean }) {
   );
 }
 
-const bars = ['from-sky-500 to-indigo-500', 'from-teal-500 to-emerald-500', 'from-violet-500 to-sky-500', 'from-pink-500 to-orange-500'];
+const bars = ['from-sky-500 to-indigo-500', 'from-teal-500 to-emerald-500', 'from-amber-500 to-rose-500', 'from-violet-500 to-sky-500', 'from-pink-500 to-orange-500'];
 
 export default function Projects() {
   return (
@@ -94,7 +94,7 @@ export default function Projects() {
               <p className="text-sm text-zinc-400">Client and internal work. Code is private.</p>
             </div>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {emojotWork.map((p, i) => (
               <article key={p.title} className="card reveal flex flex-col overflow-hidden" style={{ ['--d' as string]: `${i * 70}ms` }}>
                 <div className={`h-1.5 bg-gradient-to-r ${bars[i % bars.length]}`} />
