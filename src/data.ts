@@ -51,7 +51,7 @@ export const experience: Job[] = [
       'Design JSON workflows with status transitions, role-based fields, auto-numbering and service scheduling for clients across industries.',
       'Write complex event processing rules (XML engagement rules) for complaint escalation, SLA alerts, ORM and appointment-banking flows, plus custom skins and CX portals.',
       'Write Node.js MongoDB Atlas triggers on change streams: master-data sync across linked workflows, and AI review triage where Gemini scores sentiment and negative reviews auto-create recovery cases.',
-      'Work on Emojot web apps with Angular, including the visitor management system.',
+      'Develop product features for the Visitor Management System (Angular, TypeScript) in the core product and the Brandix edition: workflow-configurable localization, consent gating and UI improvements, with unit tests, Jira tickets and Bitbucket feature branches.',
       'Built a bank branch kiosk Android app (Expo, React Native) with a native kiosk-mode module, PIN-protected admin and idle-timeout reset.',
       'Built a lead capture and booking popup (Wix + Vercel + Google Apps Script) with round-robin assignment, Calendar availability and Meet links.',
       'Built two internal bulk upload tools used by the team: Admin Hierarchy upload (workflow JSON → Excel template → validated upload with a pre-write safety check) and Comm-Center Users upload (create missing users and add them to lists).',
